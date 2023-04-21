@@ -54,7 +54,7 @@ public class PetManager {
         clsPet pet3=new clsPet(3,"Motas",2016,"gris","Enfermo");
         
         
-        System.out.println("que se dice padrecito");
+        
         vete1.AgregarPet(pet4);
         vete1.AgregarPet(pet5);
         vete1.AgregarPet(pet3);
