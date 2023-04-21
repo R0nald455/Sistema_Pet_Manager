@@ -51,7 +51,7 @@ public class PetManager {
         clsVeterinary vete1=new clsVeterinary("PetHealth","3124568974","Cra 4 13 08","Fabio Gomez","1254251521");
         clsPet pet5=new clsPet(2,"Zeus",2021,"cafe","Sano");
         clsPet pet4=new clsPet(1,"Tobey",2012,"negro","Sano");
-        clsPet pet3=new clsPet(3,"Motas",2016,"Blanco","Dolor estomacal");
+        clsPet pet3=new clsPet(3,"Motas",2016,"Blanco","Sano");
         
         
         System.out.println("que se dice padrecito");
