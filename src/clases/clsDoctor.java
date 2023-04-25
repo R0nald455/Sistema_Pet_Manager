@@ -9,6 +9,10 @@ public class clsDoctor {
     private String Name;
     private String Licencia;
 
+    
+    //constructor vacio
+    public clsDoctor(){}
+    
     public clsDoctor(String Name, String Licencia) {
         this.Name = Name;
         this.Licencia = Licencia;

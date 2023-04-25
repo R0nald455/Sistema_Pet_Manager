@@ -7,19 +7,7 @@ public class clsPet {
     private String  healthStatus;   
     
     
-    /*metodos */
-    public void eat(){
-        System.out.println(this.getName()+" esta comiendo");
-    }
-    
-    public void move(){
-        System.out.println(this.getName()+" se esta moviendo");
-    }
-    
-    public void sound(){
-        System.out.println(this.getName()+" esta ladrando");
-    }
-    
+
     
     
     /*constuctor vacio*/
@@ -35,6 +23,21 @@ public class clsPet {
         this.healthStatus = healthStatus;
     }
 
+    
+        /*metodos */
+    public void eat(){
+        System.out.println(this.getName()+" esta comiendo");
+    }
+    
+    public void move(){
+        System.out.println(this.getName()+" se esta moviendo");
+    }
+    
+    public void sound(){
+        System.out.println(this.getName()+" esta ladrando");
+    }
+    
+    
     /*getters and setters*/
     public int getCode() {
         return code;

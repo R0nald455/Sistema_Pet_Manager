@@ -7,7 +7,7 @@ package clases;
 
 public class clsDog extends clsPet{
      private String breed;
-     private String Pedigree;
+     private boolean Pedigree;
 
      
      
@@ -18,7 +18,7 @@ public class clsDog extends clsPet{
     
     
     //constructor con  los elementos de la superclase
-    public clsDog(String breed, String Pedigree, int code, String name, int born_year, String color, String healthStatus) {
+    public clsDog( int code, String name, int born_year, String color, String healthStatus,String breed, boolean Pedigree) {
         super(code, name, born_year, color, healthStatus);
         this.breed = breed;
         this.Pedigree = Pedigree;
@@ -33,14 +33,15 @@ public class clsDog extends clsPet{
     
     //metodos getters y setters 
 
-    public String getPedigree() {
+    public boolean isPedigree() {
         return Pedigree;
     }
 
-    public void setPedigree(String Pedigree) {
+    public void setPedigree(boolean Pedigree) {
         this.Pedigree = Pedigree;
     }
-    
+
+
     public String getBreed() {
         return breed;
     }

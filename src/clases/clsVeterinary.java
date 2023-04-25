@@ -13,34 +13,23 @@ public class clsVeterinary {
     private String Name;
     private String Phone;
     private String Addres;
-    private ArrayList<clsPet> pets;
-    private clsDoctor  doctor1;
+    private clsDoctor  doctor;
     
     
+    public clsVeterinary(){};
 
-    public clsVeterinary(String Name, String Phone, String Addres,String nombreDoc,String licencia) {
+    public clsVeterinary(String Name, String Phone, String Addres,clsDoctor doctor) {
         this.Name = Name;
         this.Phone = Phone;
         this.Addres = Addres;
-        pets=new ArrayList<>();
-        this.doctor1=new clsDoctor(nombreDoc,licencia);
-    }
-    
-    
-    public void  AgregarPet(clsPet pet){
-        pets.add(pet);
-    }
-    
-    
-    public void mostrarPets(){
-            for (clsPet pets : pets) {
-            System.out.println("- "+pets.getCode()+" "+ pets.getName()+" "+pets.getColor()+" "+pets.getHealthStatus()+" "+pets.getBorn_year());
-        }
+        this.doctor=doctor;
     }
 
+    
     //metodos 
-    public void petCare(){
-        System.out.println("cuidado de mascotas a cargo de "+doctor1.getName());
+    public String petCare(clsPet pet){
+        System.out.println("atentiendo a la mascota "+pet.getName());
+        return pet.getHealthStatus();
     }
 
     //metodos getters and setters
@@ -62,9 +51,4 @@ public class clsVeterinary {
     public void setAddres(String Addres) {
         this.Addres = Addres;
     }
-    
-    
-    
-    
-    
 }

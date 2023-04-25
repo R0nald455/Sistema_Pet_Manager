@@ -6,6 +6,7 @@
 package clases;
 
 public class clsCat extends clsPet {
+    
     private String breed;
 
     
