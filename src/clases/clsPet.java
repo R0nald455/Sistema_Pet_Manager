@@ -3,7 +3,7 @@ package clases;
 import interfaces.IAnimal;
 import interfaces.IVertebrate;
 
-public class clsPet implements IAnimal,IVertebrate {
+ abstract class clsPet implements IAnimal,IVertebrate {
     private int code;
     private String name;
     private int born_year;
