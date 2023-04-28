@@ -1,5 +1,9 @@
 package clases;
-public class clsPet {
+
+import interfaces.IAnimal;
+import interfaces.IVertebrate;
+
+public class clsPet implements IAnimal,IVertebrate {
     private int code;
     private String name;
     private int born_year;
@@ -43,6 +47,17 @@ public class clsPet {
     }
     
     
+    @Override
+    public void getAnimalType(String tipo) {
+        System.out.println("tipo de animal = "+tipo);
+    }
+
+    @Override
+    public void getNumberOfBones() {
+        System.out.println("tiene" +"huesos");
+    }
+    
+ 
     
     /*getters and setters*/
     public int getCode() {
@@ -75,8 +90,7 @@ public class clsPet {
     public void setHealthStatus(String healthStatus) {
         this.healthStatus = healthStatus;
     }
-    
-    
+
 
     
 }

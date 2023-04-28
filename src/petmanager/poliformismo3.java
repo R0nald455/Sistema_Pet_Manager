@@ -10,8 +10,9 @@ import clases.clsDog;
 
 public class poliformismo3 {
     public static void main(String[] args) {
-            clsCat gato1= new clsCat(1,"Wismichu",2010,"gris","sano","egipcio");
     clsDog perro1= new clsDog(2,"zeus",2015,"negro","sano","Pastor Aleman",true);
+    
+    perro1.getAnimalType("Vertebrado");
     
     
     perro1.WalkAround();

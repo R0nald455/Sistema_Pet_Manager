@@ -42,6 +42,7 @@ public class clsDog extends clsPet{
         System.out.println(this.getName()+" esta Caminando "+km+" kilometros");
     }
     
+    
     public void WalkAround(boolean dogLeash){
         if(dogLeash){
             System.out.println(this.getName()+" esta Caminando con correa");
