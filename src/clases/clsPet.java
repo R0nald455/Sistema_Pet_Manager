@@ -23,6 +23,11 @@ public class clsPet {
         this.healthStatus = healthStatus;
     }
 
+       
+    
+
+    
+    
     
         /*metodos */
     public void eat(){
@@ -38,43 +43,35 @@ public class clsPet {
     }
     
     
+    
     /*getters and setters*/
     public int getCode() {
         return code;
     }
-
     public void setCode(int code) {
         this.code = code;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public int getBorn_year() {
         return born_year;
     }
-
     public void setBorn_year(int born_year) {
         this.born_year = born_year;
     }
-
     public String getColor() {
         return color;
     }
-
     public void setColor(String color) {
         this.color = color;
     }
-
     public String getHealthStatus() {
         return healthStatus;
     }
-
     public void setHealthStatus(String healthStatus) {
         this.healthStatus = healthStatus;
     }

@@ -22,12 +22,17 @@ public class clsCat extends clsPet {
     }
     
     
-    //metodos de la clase gato 
-    
+    @Override
+    public void sound(){
+        System.out.println(this.getName()+" dice miau miau miau ");
+    }
+
     public void SelfCleaning(){
         System.out.println("Limpio");
     }
-       
+    
+
+    
        
     
     //metodos getters ans setters

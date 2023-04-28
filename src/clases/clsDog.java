@@ -26,26 +26,40 @@ public class clsDog extends clsPet{
 
     
     
-    //metodos 
+    @Override
+    public void sound(){
+        System.out.println(this.getName()+" dice  guau guau guau ");
+    }
+    
+    
+    
+    
     public void WalkAround(){
-        System.out.println("Caminando");
+        System.out.println(this.getName()+" esta Caminando");
+    }
+    
+    public void WalkAround(int km ){
+        System.out.println(this.getName()+" esta Caminando "+km+" kilometros");
+    }
+    
+    public void WalkAround(boolean dogLeash){
+        if(dogLeash){
+            System.out.println(this.getName()+" esta Caminando con correa");
+        }else{
+            System.out.println(this.getName()+" esta Caminando sin correa");
+        }
     }
     
     //metodos getters y setters 
-
     public boolean isPedigree() {
         return Pedigree;
     }
-
     public void setPedigree(boolean Pedigree) {
         this.Pedigree = Pedigree;
     }
-
-
     public String getBreed() {
         return breed;
     }
-
     public void setBreed(String breed) {
         this.breed = breed;
     }
