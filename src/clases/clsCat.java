@@ -31,6 +31,15 @@ public class clsCat extends clsPet {
         System.out.println("Limpio");
     }
     
+    @Override
+    public String getAnimalType() {
+        return "salvaje";
+    }
+
+    @Override
+    public int getNumberOfBones() {
+        return 230;
+    }
 
     
        

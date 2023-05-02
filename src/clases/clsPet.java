@@ -3,7 +3,7 @@ package clases;
 import interfaces.IAnimal;
 import interfaces.IVertebrate;
 
- abstract class clsPet implements IAnimal,IVertebrate {
+ public class clsPet implements IAnimal,IVertebrate {
     private int code;
     private String name;
     private int born_year;
@@ -48,13 +48,13 @@ import interfaces.IVertebrate;
     
     
     @Override
-    public void getAnimalType(String tipo) {
-        System.out.println("tipo de animal = "+tipo);
+    public String getAnimalType() {
+        return "domestico";
     }
 
     @Override
-    public void getNumberOfBones() {
-        System.out.println("tiene" +"huesos");
+    public int getNumberOfBones() {
+        return 0;
     }
     
  

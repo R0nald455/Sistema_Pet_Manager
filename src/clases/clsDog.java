@@ -31,7 +31,15 @@ public class clsDog extends clsPet{
         System.out.println(this.getName()+" dice  guau guau guau ");
     }
     
-    
+    @Override
+    public String getAnimalType() {
+        return "domestico";
+    }
+
+    @Override
+    public int getNumberOfBones() {
+        return 321;
+    }
     
     
     public void WalkAround(){

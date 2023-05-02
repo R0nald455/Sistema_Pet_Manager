@@ -5,5 +5,5 @@
 package interfaces;
 
 public interface IVertebrate {
-    public void getNumberOfBones();
+    public int getNumberOfBones();
 }

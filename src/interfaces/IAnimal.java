@@ -5,5 +5,5 @@
 package interfaces;
 
 public interface IAnimal {
-    public void getAnimalType(String tipo);
+    public String getAnimalType();
 }
