@@ -17,7 +17,7 @@ public class interfaz {
         System.out.println(perro.getNumberOfBones());
         
         
-        System.out.println("gato =\n"+ gato.getAnimalType());
+        System.out.println("\n gato =\n"+ gato.getAnimalType());
         System.out.println(gato.getNumberOfBones());
         
     }

@@ -40,7 +40,7 @@ public class clsDog extends clsPet{
     public int getNumberOfBones() {
         return 321;
     }
-    
+     
     
     public void WalkAround(){
         System.out.println(this.getName()+" esta Caminando");

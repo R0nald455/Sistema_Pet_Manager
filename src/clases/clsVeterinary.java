@@ -7,7 +7,7 @@ package clases;
 
 import java.util.ArrayList;
 
-public class clsVeterinary {
+public class clsVeterinary extends AbstHospital {
     
     //atributos
     private String Name;
@@ -50,5 +50,15 @@ public class clsVeterinary {
     }
     public void setAddres(String Addres) {
         this.Addres = Addres;
+    }
+
+    @Override
+    public String getPatientType() {
+        return "animal";
+    }
+
+    @Override
+    public String Surgery() {
+        return "Surgery animal date";
     }
 }
