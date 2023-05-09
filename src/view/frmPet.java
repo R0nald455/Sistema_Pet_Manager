@@ -7,6 +7,7 @@ package view;
 import clases.clsCat;
 import clases.clsDog;
 import java.util.LinkedList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -57,7 +58,7 @@ public class frmPet extends javax.swing.JFrame {
         btnEditarCat = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        PetList = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -241,12 +242,12 @@ public class frmPet extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        PetList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Pet1", "Pet2", "Pet3", "Pet4", "Pet5", "Pet6" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(PetList);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -481,6 +482,7 @@ public class frmPet extends javax.swing.JFrame {
             }else{
                 clsDog dog= new clsDog(code,name,bornYear,color,health,breed,pedigree);
                 dogObjectList.add(dog);
+                this.fillList();
                 JOptionPane.showMessageDialog(this,"Mascota Registrada");
             }
 
@@ -521,8 +523,6 @@ public class frmPet extends javax.swing.JFrame {
             int bornYear=Integer.parseInt(txtBornCat.getText());
             String breed= cbBreedCat.getSelectedItem().toString();
             String health=cbHealthCat.getSelectedItem().toString();
-            
-            
             if(breed.equals("")|| name.equals("")||color.equals("")){
                 JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
             }else{
@@ -547,6 +547,19 @@ public class frmPet extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarCatActionPerformed
 
+    private void fillList(){
+        DefaultListModel model = new DefaultListModel();
+        int index=0;
+        for (clsDog dog : dogObjectList){
+            String data=dog.getName()+" "+dog.getBreed()+" "+dog.getColor()+" "+dog.getHealthStatus();
+            model.add(index, data);
+            index++;
+        }
+        PetList.setModel(model);
+        
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -584,6 +597,7 @@ public class frmPet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> PetList;
     private javax.swing.JButton btnBuscarCat;
     private javax.swing.JButton btnBuscarDog1;
     private javax.swing.JButton btnCrearCat;
@@ -610,7 +624,6 @@ public class frmPet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
