@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author SENA
- */
+ */  
 public class frmPet extends javax.swing.JFrame {
         LinkedList<clsDog> dogObjectList=new LinkedList<>();
         LinkedList<clsCat> catObjectList=new LinkedList<>();
@@ -68,10 +68,10 @@ public class frmPet extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cbHealthDog = new javax.swing.JComboBox<>();
         jPanel10 = new javax.swing.JPanel();
-        btnEliminarDog1 = new javax.swing.JButton();
-        btnCrearDog1 = new javax.swing.JButton();
-        btnBuscarDog1 = new javax.swing.JButton();
-        btnEditarDog1 = new javax.swing.JButton();
+        btnEliminarDog = new javax.swing.JButton();
+        btnCrearDog = new javax.swing.JButton();
+        btnBuscarDog = new javax.swing.JButton();
+        btnEditarDog = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtNameDog = new javax.swing.JTextField();
@@ -317,49 +317,49 @@ public class frmPet extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnEliminarDog1.setBackground(new java.awt.Color(204, 204, 204));
-        btnEliminarDog1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnEliminarDog1.setText("Eliminar");
-        btnEliminarDog1.setBorder(null);
-        btnEliminarDog1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarDog.setBackground(new java.awt.Color(204, 204, 204));
+        btnEliminarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnEliminarDog.setText("Eliminar");
+        btnEliminarDog.setBorder(null);
+        btnEliminarDog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarDog1ActionPerformed(evt);
+                btnEliminarDogActionPerformed(evt);
             }
         });
-        jPanel10.add(btnEliminarDog1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 80, 50));
+        jPanel10.add(btnEliminarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 80, 50));
 
-        btnCrearDog1.setBackground(new java.awt.Color(204, 204, 204));
-        btnCrearDog1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnCrearDog1.setText("Crear");
-        btnCrearDog1.setBorder(null);
-        btnCrearDog1.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearDog.setBackground(new java.awt.Color(204, 204, 204));
+        btnCrearDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnCrearDog.setText("Crear");
+        btnCrearDog.setBorder(null);
+        btnCrearDog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearDog1ActionPerformed(evt);
+                btnCrearDogActionPerformed(evt);
             }
         });
-        jPanel10.add(btnCrearDog1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 50));
+        jPanel10.add(btnCrearDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 50));
 
-        btnBuscarDog1.setBackground(new java.awt.Color(204, 204, 204));
-        btnBuscarDog1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnBuscarDog1.setText("Buscar");
-        btnBuscarDog1.setBorder(null);
-        btnBuscarDog1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarDog.setBackground(new java.awt.Color(204, 204, 204));
+        btnBuscarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnBuscarDog.setText("Buscar");
+        btnBuscarDog.setBorder(null);
+        btnBuscarDog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarDog1ActionPerformed(evt);
+                btnBuscarDogActionPerformed(evt);
             }
         });
-        jPanel10.add(btnBuscarDog1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 80, 50));
+        jPanel10.add(btnBuscarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 80, 50));
 
-        btnEditarDog1.setBackground(new java.awt.Color(204, 204, 204));
-        btnEditarDog1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnEditarDog1.setText("Editar");
-        btnEditarDog1.setBorder(null);
-        btnEditarDog1.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarDog.setBackground(new java.awt.Color(204, 204, 204));
+        btnEditarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnEditarDog.setText("Editar");
+        btnEditarDog.setBorder(null);
+        btnEditarDog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarDog1ActionPerformed(evt);
+                btnEditarDogActionPerformed(evt);
             }
         });
-        jPanel10.add(btnEditarDog1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 80, 50));
+        jPanel10.add(btnEditarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 80, 50));
 
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 380, 90));
 
@@ -463,11 +463,38 @@ public class frmPet extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBornDogActionPerformed
 
-    private void btnEliminarDog1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDog1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarDog1ActionPerformed
+    private void btnEliminarDogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDogActionPerformed
+        try{
+            String code= txtCodeDog.getText();
+        if(code.equals("")) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese codigo");
+        } else {
+            int codigo=Integer.parseInt(code);
+            boolean found=false; 
+            for (clsDog dog : dogObjectList){
+                if(dog.getCode()==codigo){
+                    dogObjectList.remove(dog);
+                    found=true;
+                    this.fillList();
+                    limpiarDog();
+                    JOptionPane.showMessageDialog(this, "Mascota Eliminada");
+                    break;
+                }
+            }
+            if(!found){
+                JOptionPane.showMessageDialog(this,"Codigo no encontrado");
+            }
+        }
+        }catch(Exception e){    
+        JOptionPane.showMessageDialog(this,"Digite un valor valido");
+        }
 
-    private void btnCrearDog1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearDog1ActionPerformed
+
+
+
+    }//GEN-LAST:event_btnEliminarDogActionPerformed
+
+    private void btnCrearDogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearDogActionPerformed
         try{
             int code= Integer.parseInt(txtCodeDog.getText());
             String name= txtNameDog.getText();
@@ -483,21 +510,75 @@ public class frmPet extends javax.swing.JFrame {
                 clsDog dog= new clsDog(code,name,bornYear,color,health,breed,pedigree);
                 dogObjectList.add(dog);
                 this.fillList();
+                limpiarDog();
                 JOptionPane.showMessageDialog(this,"Mascota Registrada");
             }
 
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Digite un valor valido");
         }
-    }//GEN-LAST:event_btnCrearDog1ActionPerformed
+    }//GEN-LAST:event_btnCrearDogActionPerformed
 
-    private void btnBuscarDog1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDog1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarDog1ActionPerformed
+    private void btnBuscarDogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDogActionPerformed
+        try{
+            String code= txtCodeDog.getText();
+        if(code.equals("")) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese codigo");
+        } else {
+            int codigo=Integer.parseInt(code);
+            boolean found=false; 
+            for (clsDog dog : dogObjectList){
+                if(dog.getCode()==codigo){
+                    txtNameDog.setText(dog.getName());
+                    txtColorDog.setText(dog.getColor());
+                    cbBreedDog.setSelectedItem(dog.getBreed());
+                    txtBornDog.setText(Integer.toString(dog.getBorn_year()));
+                    cbHealthDog.setSelectedItem(dog.getHealthStatus());
+                    cbPedigreDog.setSelected(dog.isPedigree());
+                    found=true;
+                    break;
+                }
+            }
+            if(!found){
+                JOptionPane.showMessageDialog(this,"Codigo no encontrado");
+            }
+        }
+        }catch(Exception e){    
+        JOptionPane.showMessageDialog(this,"Digite un valor valido");
+        }
+    }//GEN-LAST:event_btnBuscarDogActionPerformed
 
-    private void btnEditarDog1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDog1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarDog1ActionPerformed
+    private void btnEditarDogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDogActionPerformed
+            try{
+            int code= Integer.parseInt(txtCodeDog.getText());
+            String name= txtNameDog.getText();
+            String color= txtColorDog.getText();
+            int bornYear=Integer.parseInt(txtBornDog.getText());
+            String breed= cbBreedDog.getSelectedItem().toString();
+            String health=cbHealthDog.getSelectedItem().toString();
+            boolean pedigree = cbPedigreDog.isSelected();
+            if(breed.equals("")|| name.equals("")||color.equals("")){
+                JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
+            }else{
+            for (clsDog dog : dogObjectList){
+                if(dog.getCode()==code){    
+                    dog.setName(name);
+                    dog.setColor(color);
+                    dog.setBreed(breed);
+                    dog.setBorn_year(bornYear);
+                    dog.setHealthStatus(health);
+                    dog.setPedigree(pedigree);
+                    fillList();
+                    limpiarDog();
+                    JOptionPane.showMessageDialog(this,"Mascota actualizada");
+                    break;
+                }
+            }
+        }
+        }catch(Exception e){    
+        JOptionPane.showMessageDialog(this,"Digite un valor valido");
+        }
+    }//GEN-LAST:event_btnEditarDogActionPerformed
 
     private void txtNameDogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameDogActionPerformed
         // TODO add your handling code here:
@@ -512,6 +593,35 @@ public class frmPet extends javax.swing.JFrame {
     }//GEN-LAST:event_cbPedigreDogActionPerformed
 
     private void btnEliminarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCatActionPerformed
+        try{
+            String code= txtCodeCat.getText();
+        if(code.equals("")) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese codigo");
+        } else {
+            int codigo=Integer.parseInt(code);
+            boolean found=false; 
+            for (clsCat cat : catObjectList){
+                if(cat.getCode()==codigo){
+                    catObjectList.remove(cat);
+                    found=true;
+                    this.fillListCat();
+                    limpiarCat();
+                    JOptionPane.showMessageDialog(this, "Mascota Eliminada");
+                    break;
+                }
+            }
+            if(!found){
+                JOptionPane.showMessageDialog(this,"Codigo no encontrado");
+            }
+        }
+        }catch(Exception e){    
+        JOptionPane.showMessageDialog(this,"Digite un valor valido");
+        }
+
+
+
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarCatActionPerformed
 
@@ -528,6 +638,8 @@ public class frmPet extends javax.swing.JFrame {
             }else{
                 clsCat cat= new clsCat(code,name,bornYear,color,health,breed);
                 catObjectList.add(cat);
+                this.fillListCat();
+                limpiarCat();
                 JOptionPane.showMessageDialog(this,"Mascota Registrada");
             }
 
@@ -540,11 +652,66 @@ public class frmPet extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearCatActionPerformed
 
     private void btnBuscarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCatActionPerformed
-        // TODO add your handling code here:
+        try{
+            String code= txtCodeCat.getText();
+        if(code.equals("")) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese codigo");
+        } else {
+            int codigo=Integer.parseInt(code);
+            boolean found=false; 
+            for (clsCat cat : catObjectList){
+                if(cat.getCode()==codigo){
+                    txtNameCat.setText(cat.getName());
+                    txtColorCat.setText(cat.getColor());
+                    cbBreedCat.setSelectedItem(cat.getBreed());
+                    txtBornCat.setText(Integer.toString(cat.getBorn_year()));
+                    cbHealthCat.setSelectedItem(cat.getHealthStatus());
+                  
+                    found=true;
+                    break;
+                }
+            }
+            if(!found){
+                JOptionPane.showMessageDialog(this,"Codigo no encontrado");
+            }
+        }
+        }catch(Exception e){    
+        JOptionPane.showMessageDialog(this,"Digite un valor valido");
+        }
+        
+        
+        
     }//GEN-LAST:event_btnBuscarCatActionPerformed
 
     private void btnEditarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCatActionPerformed
-        // TODO add your handling code here:
+        try{
+            int code= Integer.parseInt(txtCodeCat.getText());
+            String name= txtNameCat.getText();
+            String color= txtColorCat.getText();
+            int bornYear=Integer.parseInt(txtBornCat.getText());
+            String breed= cbBreedCat.getSelectedItem().toString();
+            String health=cbHealthCat.getSelectedItem().toString();
+         
+            if(breed.equals("")|| name.equals("")||color.equals("")){
+                JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
+            }else{
+            for (clsCat cat : catObjectList){
+                if(cat.getCode()==code){    
+                    cat.setName(name);
+                    cat.setColor(color);
+                    cat.setBreed(breed);
+                    cat.setBorn_year(bornYear);
+                    cat.setHealthStatus(health);
+                    fillListCat();
+                    limpiarCat();
+                    JOptionPane.showMessageDialog(this,"Mascota actualizada");
+                    break;
+                }
+            }
+        }
+        }catch(Exception e){    
+        JOptionPane.showMessageDialog(this,"Digite un valor valido");
+        }
     }//GEN-LAST:event_btnEditarCatActionPerformed
 
     private void fillList(){
@@ -556,9 +723,33 @@ public class frmPet extends javax.swing.JFrame {
             index++;
         }
         PetList.setModel(model);
-        
     }
     
+    private void limpiarDog(){
+        txtCodeDog.setText("");
+        txtNameDog.setText("");
+        txtColorDog.setText("");
+        txtBornDog.setText("");
+        cbPedigreDog.setSelected(false);
+    }
+    
+    private void fillListCat(){
+        DefaultListModel model = new DefaultListModel();
+        int index=0;
+        for (clsCat cat : catObjectList){
+            String data=cat.getName()+" "+cat.getBreed()+" "+cat.getColor()+" "+cat.getHealthStatus();
+            model.add(index, data);
+            index++;
+        }
+        PetList.setModel(model);
+    }
+    
+    private void limpiarCat(){
+        txtCodeCat.setText("");
+        txtNameCat.setText("");
+        txtColorCat.setText("");
+        txtBornCat.setText("");
+    }
     
     /**
      * @param args the command line arguments
@@ -599,13 +790,13 @@ public class frmPet extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> PetList;
     private javax.swing.JButton btnBuscarCat;
-    private javax.swing.JButton btnBuscarDog1;
+    private javax.swing.JButton btnBuscarDog;
     private javax.swing.JButton btnCrearCat;
-    private javax.swing.JButton btnCrearDog1;
+    private javax.swing.JButton btnCrearDog;
     private javax.swing.JButton btnEditarCat;
-    private javax.swing.JButton btnEditarDog1;
+    private javax.swing.JButton btnEditarDog;
     private javax.swing.JButton btnEliminarCat;
-    private javax.swing.JButton btnEliminarDog1;
+    private javax.swing.JButton btnEliminarDog;
     private javax.swing.JComboBox<String> cbBreedCat;
     private javax.swing.JComboBox<String> cbBreedDog;
     private javax.swing.JComboBox<String> cbHealthCat;
