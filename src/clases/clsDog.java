@@ -33,7 +33,7 @@ public class clsDog extends clsPet{
     
     @Override
     public String getAnimalType() {
-        return "domestico";
+        return "Perro";
     }
 
     @Override

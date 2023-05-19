@@ -11,6 +11,7 @@ import config.conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class modelDog {
@@ -23,7 +24,13 @@ public class modelDog {
     
     public boolean createPet(clsDog dog ){
     try{
-        
+        System.out.println("modelo");
+        String sql="Insert  into perros(name, bornYear, color, healthStatus, breed)"
+                + "values('"+dog.getName()+"',"+dog.getBorn_year()+" ,' "+dog.getColor()+" ', '"+dog.getHealthStatus()+"' ,' "+dog.getBreed()+"')";
+        System.out.println(sql);
+        cn =(Connection) con.getConnection();
+        st=cn.createStatement();
+        st.executeUpdate(sql);
         return true;
     }catch(Exception e){
         return false;
@@ -32,7 +39,10 @@ public class modelDog {
     
     public boolean editPet(clsDog dog ){
     try{
-        
+        String  sql="UPDATE persona SET dni='"+"',nombres='"+"' WHERE id=" ;
+        cn =(Connection) con.getConnection();
+        st=cn.createStatement();
+        st.executeUpdate(sql);
         return true;
     }catch(Exception e){
         return false;
@@ -42,9 +52,16 @@ public class modelDog {
     public clsDog searchPet(int code ){
             clsDog dog =null;
         try{
-            System.out.println(code);
-            if(code==1){
-            dog=new clsDog(1,"zeus",2010,"Negro","Sano","Pastor Aleman",true);
+            String sql="select * from perros where code="+code;
+            cn =(Connection) con.getConnection();
+            st=cn.createStatement();
+            rs=st.executeQuery(sql);
+            Object[]persona=new Object[3];
+            while(rs.next()){
+            persona[0]=rs.getInt("id");
+            persona[1]=rs.getString("dni");
+            persona[2]=rs.getString("nombres");
+            modelo.addRow(persona);
             }
             return dog;
         }catch(Exception e){
@@ -54,7 +71,11 @@ public class modelDog {
             
     public boolean deletePet( clsDog dog){
     try{
-        
+        String  sql="delete from perros where id=" +dog.getCode();
+            cn = (Connection)
+            con.getConnection();
+            st=cn.createStatement();
+            st.executeUpdate(sql);
         return true;
     }catch(Exception e){
         return false;

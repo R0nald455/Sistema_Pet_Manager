@@ -22,6 +22,7 @@ public class ctlPet {
 
     public boolean CreatePet(clsPet pet){
     try{
+        System.out.println("contolador");
         switch(pet.getAnimalType()){
             case "Perro":
                 this.modelDog=new modelDog();

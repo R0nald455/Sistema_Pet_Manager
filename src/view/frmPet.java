@@ -516,6 +516,8 @@ public class frmPet extends javax.swing.JFrame {
                 dogObjectList.add(dog);
                 this.fillList();
                 limpiarDog();
+                ctlPet.CreatePet(dog);
+                
                 JOptionPane.showMessageDialog(this,"Mascota Registrada");
             }
 
