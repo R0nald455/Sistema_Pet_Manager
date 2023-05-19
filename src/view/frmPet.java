@@ -6,6 +6,7 @@ package view;
 
 import clases.clsCat;
 import clases.clsDog;
+import controller.ctlPet;
 import java.util.LinkedList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -15,6 +16,9 @@ import javax.swing.JOptionPane;
  * @author SENA
  */  
 public class frmPet extends javax.swing.JFrame {
+    
+    
+        ctlPet ctlPet;
         LinkedList<clsDog> dogObjectList=new LinkedList<>();
         LinkedList<clsCat> catObjectList=new LinkedList<>();
     /**
@@ -22,6 +26,7 @@ public class frmPet extends javax.swing.JFrame {
      */
     public frmPet() {
         initComponents();
+        this.ctlPet=new ctlPet();
     }
 
     /**
@@ -520,31 +525,20 @@ public class frmPet extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearDogActionPerformed
 
     private void btnBuscarDogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDogActionPerformed
-        try{
-            String code= txtCodeDog.getText();
-        if(code.equals("")) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese codigo");
+
+        String code= txtCodeDog.getText();
+        int codigo=Integer.parseInt(code);
+        clsDog dog = (clsDog) ctlPet.searchPet(codigo, "Perro");
+        if(dog==null) {
+            JOptionPane.showMessageDialog(this, "Codigo no encontrado");
         } else {
-            int codigo=Integer.parseInt(code);
-            boolean found=false; 
-            for (clsDog dog : dogObjectList){
-                if(dog.getCode()==codigo){
-                    txtNameDog.setText(dog.getName());
-                    txtColorDog.setText(dog.getColor());
-                    cbBreedDog.setSelectedItem(dog.getBreed());
-                    txtBornDog.setText(Integer.toString(dog.getBorn_year()));
-                    cbHealthDog.setSelectedItem(dog.getHealthStatus());
-                    cbPedigreDog.setSelected(dog.isPedigree());
-                    found=true;
-                    break;
-                }
-            }
-            if(!found){
-                JOptionPane.showMessageDialog(this,"Codigo no encontrado");
-            }
-        }
-        }catch(Exception e){    
-        JOptionPane.showMessageDialog(this,"Digite un valor valido");
+                txtNameDog.setText(dog.getName());
+                txtColorDog.setText(dog.getColor());
+                cbBreedDog.setSelectedItem(dog.getBreed());
+                txtBornDog.setText(Integer.toString(dog.getBorn_year()));
+                cbHealthDog.setSelectedItem(dog.getHealthStatus());
+                cbPedigreDog.setSelected(dog.isPedigree());
+
         }
     }//GEN-LAST:event_btnBuscarDogActionPerformed
 
