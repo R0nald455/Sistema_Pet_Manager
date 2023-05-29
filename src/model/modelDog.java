@@ -25,11 +25,11 @@ public class modelDog {
     public boolean createPet(clsDog dog ){
     try{
         System.out.println("modelo");
-        String sql="Insert  into perros(name, bornYear, color, healthStatus, breed)"
-                + "values('"+dog.getName()+"',"+dog.getBorn_year()+" ,' "+dog.getColor()+" ', '"+dog.getHealthStatus()+"' ,' "+dog.getBreed()+"')";
-        System.out.println(sql);
+        String sql="Insert  into tb_pet(`petId`, `petCode`, `petName`, `born_year`, `color`, `health_status`)"
+                + "values(6,'"+dog.getCode()+"','"+dog.getName()+"',"+dog.getBorn_year()+",'"+dog.getColor()+"','"+dog.getHealthStatus()+"')";
         cn =(Connection) con.getConnection();
         st=cn.createStatement();
+        System.out.println(sql);
         st.executeUpdate(sql);
         return true;
     }catch(Exception e){
