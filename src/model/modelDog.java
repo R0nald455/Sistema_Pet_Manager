@@ -7,42 +7,44 @@ package model;
 
 import clases.clsDog;
 import clases.clsPet;
-import config.conexion;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class modelDog {
+    dbData dbData;
+    Connection con;
 
-    conexion  con= new conexion();
-    Connection cn;
-    Statement st;
-    ResultSet rs;
-    DefaultTableModel modelo;
-    
-    public boolean createPet(clsDog dog ){
-    try{
-        System.out.println("modelo");
-        String sql="Insert  into tb_pet(`petId`, `petCode`, `petName`, `born_year`, `color`, `health_status`)"
-                + "values(6,'"+dog.getCode()+"','"+dog.getName()+"',"+dog.getBorn_year()+",'"+dog.getColor()+"','"+dog.getHealthStatus()+"')";
-        cn =(Connection) con.getConnection();
-        st=cn.createStatement();
-        System.out.println(sql);
-        st.executeUpdate(sql);
-        return true;
-    }catch(Exception e){
-        return false;
+    public modelDog() {
+        this.dbData = new dbData();
     }
+        
+    public boolean createPet(clsDog dog ){
+    try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+        if(con != null){
+        System.out.println("conectado");
+        };
+        String sql="Insert  into tb_pet( `petCode`, `petName`, `born_year`, `color`, `health_status`) values(?,?,?,?,?)";
+        PreparedStatement statement = con.prepareStatement(sql);
+        statement.setInt(1,dog.getCode());
+        statement.setString(2,dog.getName());
+        statement.setInt(3,dog.getBorn_year());
+        statement.setString(4,dog.getColor());
+        statement.setString(5,dog.getHealthStatus());
+        int rowsAffected = statement.executeUpdate();
+        return true;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
     
     public boolean editPet(clsDog dog ){
     try{
-        String  sql="UPDATE persona SET dni='"+"',nombres='"+"' WHERE id=" ;
-        cn =(Connection) con.getConnection();
-        st=cn.createStatement();
-        st.executeUpdate(sql);
+
         return true;
     }catch(Exception e){
         return false;
@@ -51,31 +53,12 @@ public class modelDog {
         
     public clsDog searchPet(int code ){
             clsDog dog =null;
-        try{
-            String sql="select * from perros where code="+code;
-            cn =(Connection) con.getConnection();
-            st=cn.createStatement();
-            rs=st.executeQuery(sql);
-            Object[]persona=new Object[3];
-            while(rs.next()){
-            persona[0]=rs.getInt("id");
-            persona[1]=rs.getString("dni");
-            persona[2]=rs.getString("nombres");
-            modelo.addRow(persona);
-            }
             return dog;
-        }catch(Exception e){
-            return dog;
-        }
     }
             
     public boolean deletePet( clsDog dog){
     try{
-        String  sql="delete from perros where id=" +dog.getCode();
-            cn = (Connection)
-            con.getConnection();
-            st=cn.createStatement();
-            st.executeUpdate(sql);
+
         return true;
     }catch(Exception e){
         return false;
