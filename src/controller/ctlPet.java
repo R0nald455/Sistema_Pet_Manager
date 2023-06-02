@@ -15,10 +15,6 @@ public class ctlPet {
     private modelDog modelDog;
     private modelCat modelCat;
     
- 
-
-    
-    
 
     public boolean CreatePet(clsPet pet){
     try{
@@ -28,6 +24,7 @@ public class ctlPet {
                 this.modelDog.createPet((clsDog)pet);
                 break;
             case "Gato":
+                this.modelCat=new modelCat();
                 this.modelCat.createPet((clsCat)pet);
                 break;
         }

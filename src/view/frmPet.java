@@ -635,6 +635,7 @@ public class frmPet extends javax.swing.JFrame {
                 clsCat cat= new clsCat(code,name,bornYear,color,health,breed);
                 catObjectList.add(cat);
                 this.fillListCat();
+                ctlPet.CreatePet(cat);
                 limpiarCat();
                 JOptionPane.showMessageDialog(this,"Mascota Registrada");
             }
