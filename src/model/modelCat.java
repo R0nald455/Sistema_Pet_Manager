@@ -49,8 +49,6 @@ public class modelCat {
             statementCat.executeUpdate();
             }
             
-            
-            
             return true;
         }catch(SQLException e){
             e.printStackTrace();
@@ -59,28 +57,120 @@ public class modelCat {
     }
     
     public boolean editPet(clsCat cat ){
-    try{
+        System.out.println("editar funciona");
+    try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+        if(con != null){
+        System.out.println("conectado");
+        };
+        
+        String sqlId="SELECT petId,cat_id FROM tb_pet inner join tb_cat on (pet_id=petId) WHERE petCode=?";
+        String sqlPet="UPDATE tb_pet SET petCode=?,petName=?,born_year=?,color=?,health_status=? WHERE petId=?";
+        String sqlCat="UPDATE tb_cat SET breed=? WHERE cat_id=?";
+        
+        
+        //se prepara el estamento y se envia la orden de retornar las llaves generadas
+        PreparedStatement statement = con.prepareStatement(sqlId);
+        statement.setInt(1,cat.getCode());
+        //se ejecuta la consulta para conocer los id 
+        ResultSet rs=statement.executeQuery();
+        while(rs.next()){
+            int id1=rs.getInt(1);
+            int id2=rs.getInt(2);
+            PreparedStatement staPet=con.prepareStatement(sqlPet);
+            //se envian lso datos a la cconsulta sql
+            staPet.setInt(1,cat.getCode());
+            staPet.setString(2,cat.getName());
+            staPet.setInt(3,cat.getBorn_year());
+            staPet.setString(4,cat.getColor());
+            staPet.setString(5,cat.getHealthStatus());
+            staPet.setInt(6,id1);
+            staPet.executeUpdate();
+            
+            
+           
+            PreparedStatement staDog=con.prepareStatement(sqlCat);
+            staDog.setString(1,cat.getBreed());
+            staDog.setInt(2, id2);
+            
+            staDog.executeUpdate();
+            
+            
+        }
+       
         return true;
-    }catch(Exception e){
-        return false;
-    }
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
         
-    public boolean searchPet(int code ){
-        
-    try{
-        return true;
-    }catch(Exception e){
-        return false;
-    }
+    public clsCat searchPet(int code ){
+            clsCat cat =null;
+            System.out.println("buscar  funciona = "+code);
+            try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+            if(con != null){
+            System.out.println("conectado");
+            };
+                
+            String sql="SELECT petCode,petName,born_year,color,health_status,breed FROM tb_pet inner join tb_cat on (pet_id=petId) WHERE petCode=?";
+            PreparedStatement statement=con.prepareStatement(sql);
+            statement.setInt(1,code);
+            ResultSet rs=statement.executeQuery();
+            while(rs.next()){
+            cat=new clsCat();
+            cat.setCode(rs.getInt(1));
+            cat.setName(rs.getString(2));
+            cat.setBorn_year(rs.getInt(3));
+            cat.setColor(rs.getString(4));
+            cat.setHealthStatus(rs.getString(5));
+            cat.setBreed(rs.getString(6));
+            }
+              return cat;  
+            }catch(SQLException e){
+                e.printStackTrace();
+            return cat;
+            }
+            
     }
             
-    public boolean deletePet(clsCat cat ){
-    try{
+    public boolean deletePet(int code){
+    try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+        if(con != null){
+        System.out.println("conectado");
+        };
+        
+        String sqlId="SELECT petId,cat_id FROM tb_pet inner join tb_cat on (pet_id=petId) WHERE petCode=?";
+        String sqlPet="DELETE FROM `tb_pet` WHERE petId=?";
+        String sqlCat="DELETE FROM `tb_cat` WHERE cat_id=?";
+        
+        
+        //se prepara el estamento y se envia la orden de retornar las llaves generadas
+        PreparedStatement statement = con.prepareStatement(sqlId);
+        statement.setInt(1,code);
+        //se ejecuta la consulta para conocer los id 
+        ResultSet rs=statement.executeQuery();
+        while(rs.next()){
+            int id1=rs.getInt(1);
+            int id2=rs.getInt(2);
+
+            
+            PreparedStatement staDog=con.prepareStatement(sqlCat);
+            staDog.setInt(1, id2);
+            
+            staDog.executeUpdate();
+            
+            
+            
+            PreparedStatement staPet=con.prepareStatement(sqlPet);
+            //se envian lso datos a la cconsulta sql
+            staPet.setInt(1,id1);
+            staPet.executeUpdate();
+        }
         return true;
-    }catch(Exception e){
-        return false;
-    }
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
           
     

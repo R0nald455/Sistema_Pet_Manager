@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -476,16 +477,10 @@ public class frmPet extends javax.swing.JFrame {
         } else {
             int codigo=Integer.parseInt(code);
             boolean found=false; 
-            for (clsDog dog : dogObjectList){
-                if(dog.getCode()==codigo){
-                    dogObjectList.remove(dog);
-                    found=true;
-                    this.fillList();
-                    limpiarDog();
-                    JOptionPane.showMessageDialog(this, "Mascota Eliminada");
-                    break;
-                }
-            }
+            found=ctlPet.DeletePet(codigo,"Perro");
+            this.fillList();
+            limpiarDog();
+            JOptionPane.showMessageDialog(this, "Mascota Eliminada");
             if(!found){
                 JOptionPane.showMessageDialog(this,"Codigo no encontrado");
             }
@@ -527,20 +522,22 @@ public class frmPet extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearDogActionPerformed
 
     private void btnBuscarDogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDogActionPerformed
-
-        String code= txtCodeDog.getText();
-        int codigo=Integer.parseInt(code);
-        clsDog dog = (clsDog) ctlPet.searchPet(codigo, "Perro");
-        if(dog==null) {
-            JOptionPane.showMessageDialog(this, "Codigo no encontrado");
-        } else {
-                txtNameDog.setText(dog.getName());
-                txtColorDog.setText(dog.getColor());
-                cbBreedDog.setSelectedItem(dog.getBreed());
-                txtBornDog.setText(Integer.toString(dog.getBorn_year()));
-                cbHealthDog.setSelectedItem(dog.getHealthStatus());
-                cbPedigreDog.setSelected(dog.isPedigree());
-
+        try{
+            String code= txtCodeDog.getText();
+            int codigo=Integer.parseInt(code);
+            clsDog dog = (clsDog) ctlPet.searchPet(codigo, "Perro");
+            if(dog==null) {
+                JOptionPane.showMessageDialog(this, "Codigo no encontrado");
+            } else {
+                    txtNameDog.setText(dog.getName());
+                    txtColorDog.setText(dog.getColor());
+                    cbBreedDog.setSelectedItem(dog.getBreed());
+                    txtBornDog.setText(Integer.toString(dog.getBorn_year()));
+                    cbHealthDog.setSelectedItem(dog.getHealthStatus());
+                    cbPedigreDog.setSelected(dog.isPedigree());
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"Digite un valor valido");
         }
     }//GEN-LAST:event_btnBuscarDogActionPerformed
 
@@ -556,20 +553,11 @@ public class frmPet extends javax.swing.JFrame {
             if(breed.equals("")|| name.equals("")||color.equals("")){
                 JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
             }else{
-            for (clsDog dog : dogObjectList){
-                if(dog.getCode()==code){    
-                    dog.setName(name);
-                    dog.setColor(color);
-                    dog.setBreed(breed);
-                    dog.setBorn_year(bornYear);
-                    dog.setHealthStatus(health);
-                    dog.setPedigree(pedigree);
+                    clsDog dog= new clsDog(code,name,bornYear,color,health,breed,pedigree);
+                    ctlPet.EditPet(dog);
                     fillList();
                     limpiarDog();
                     JOptionPane.showMessageDialog(this,"Mascota actualizada");
-                    break;
-                }
-            }
         }
         }catch(Exception e){    
         JOptionPane.showMessageDialog(this,"Digite un valor valido");
@@ -596,16 +584,10 @@ public class frmPet extends javax.swing.JFrame {
         } else {
             int codigo=Integer.parseInt(code);
             boolean found=false; 
-            for (clsCat cat : catObjectList){
-                if(cat.getCode()==codigo){
-                    catObjectList.remove(cat);
-                    found=true;
-                    this.fillListCat();
-                    limpiarCat();
-                    JOptionPane.showMessageDialog(this, "Mascota Eliminada");
-                    break;
-                }
-            }
+            found=ctlPet.DeletePet(codigo,"Gato");
+            this.fillList();
+            limpiarDog();
+            JOptionPane.showMessageDialog(this, "Mascota Eliminada");
             if(!found){
                 JOptionPane.showMessageDialog(this,"Codigo no encontrado");
             }
@@ -651,31 +633,20 @@ public class frmPet extends javax.swing.JFrame {
     private void btnBuscarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCatActionPerformed
         try{
             String code= txtCodeCat.getText();
-        if(code.equals("")) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese codigo");
-        } else {
             int codigo=Integer.parseInt(code);
-            boolean found=false; 
-            for (clsCat cat : catObjectList){
-                if(cat.getCode()==codigo){
+            clsCat cat = (clsCat) ctlPet.searchPet(codigo, "Gato");
+            if(cat==null) {
+                JOptionPane.showMessageDialog(this, "Codigo no encontrado");
+            } else {
                     txtNameCat.setText(cat.getName());
                     txtColorCat.setText(cat.getColor());
                     cbBreedCat.setSelectedItem(cat.getBreed());
                     txtBornCat.setText(Integer.toString(cat.getBorn_year()));
                     cbHealthCat.setSelectedItem(cat.getHealthStatus());
-                  
-                    found=true;
-                    break;
-                }
             }
-            if(!found){
-                JOptionPane.showMessageDialog(this,"Codigo no encontrado");
-            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"Digite un valor valido");
         }
-        }catch(Exception e){    
-        JOptionPane.showMessageDialog(this,"Digite un valor valido");
-        }
-        
         
         
     }//GEN-LAST:event_btnBuscarCatActionPerformed
@@ -692,19 +663,12 @@ public class frmPet extends javax.swing.JFrame {
             if(breed.equals("")|| name.equals("")||color.equals("")){
                 JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
             }else{
-            for (clsCat cat : catObjectList){
-                if(cat.getCode()==code){    
-                    cat.setName(name);
-                    cat.setColor(color);
-                    cat.setBreed(breed);
-                    cat.setBorn_year(bornYear);
-                    cat.setHealthStatus(health);
+                    clsCat cat= new clsCat(code,name,bornYear,color,health,breed);
+                    ctlPet.EditPet(cat);
                     fillListCat();
                     limpiarCat();
                     JOptionPane.showMessageDialog(this,"Mascota actualizada");
-                    break;
-                }
-            }
+
         }
         }catch(Exception e){    
         JOptionPane.showMessageDialog(this,"Digite un valor valido");

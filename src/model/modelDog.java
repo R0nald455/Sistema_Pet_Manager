@@ -51,7 +51,6 @@ public class modelDog {
         int id =-1;
         if(rs.next()){//se itinera sobre result set para poder obtener los datos de lo contrario no devolvera el dato
              id = rs.getInt(1);
-             System.out.println(id+"  xd  "+rowsAffected);
         }
         
         
@@ -71,27 +70,123 @@ public class modelDog {
     }
     
     public boolean editPet(clsDog dog ){
-    try{
-
+        System.out.println("editar funciona");
+    try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+        if(con != null){
+        System.out.println("conectado");
+        };
+        
+        String sqlId="SELECT petId,dog_id FROM tb_pet inner join tb_dog on (pet_id=petId) WHERE petCode=?";
+        String sqlPet="UPDATE tb_pet SET petCode=?,petName=?,born_year=?,color=?,health_status=? WHERE petId=?";
+        String sqlDog="UPDATE tb_dog SET breed=?,pedigree=? WHERE dog_id=?";
+        
+        
+        //se prepara el estamento y se envia la orden de retornar las llaves generadas
+        PreparedStatement statement = con.prepareStatement(sqlId);
+        statement.setInt(1,dog.getCode());
+        //se ejecuta la consulta para conocer los id 
+        ResultSet rs=statement.executeQuery();
+        while(rs.next()){
+            int id1=rs.getInt(1);
+            int id2=rs.getInt(2);
+            PreparedStatement staPet=con.prepareStatement(sqlPet);
+            //se envian lso datos a la cconsulta sql
+            staPet.setInt(1,dog.getCode());
+            staPet.setString(2,dog.getName());
+            staPet.setInt(3,dog.getBorn_year());
+            staPet.setString(4,dog.getColor());
+            staPet.setString(5,dog.getHealthStatus());
+            staPet.setInt(6,id1);
+            staPet.executeUpdate();
+            
+            
+           
+            PreparedStatement staDog=con.prepareStatement(sqlDog);
+            staDog.setString(1,dog.getBreed());
+            staDog.setBoolean(2,dog.isPedigree());
+            staDog.setInt(3, id2);
+            
+            staDog.executeUpdate();
+            
+            
+        }
+       
         return true;
-    }catch(Exception e){
-        return false;
-    }
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
         
     public clsDog searchPet(int code ){
             clsDog dog =null;
+            System.out.println("buscar  funciona = "+code);
+            try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+            if(con != null){
+            System.out.println("conectado");
+            };
+                
+            String sql="SELECT petCode,petName,born_year,color,health_status,breed,pedigree FROM tb_pet inner join tb_dog on (pet_id=petId) WHERE petCode=?";
+            PreparedStatement statement=con.prepareStatement(sql);
+                
+            statement.setInt(1,code);
+            ResultSet rs=statement.executeQuery();
+            while(rs.next()){
+            dog=new clsDog();
+            dog.setCode(rs.getInt(1));
+            dog.setName(rs.getString(2));
+            dog.setBorn_year(rs.getInt(3));
+            dog.setColor(rs.getString(4));
+            dog.setHealthStatus(rs.getString(5));
+            dog.setBreed(rs.getString(6));
+            dog.setPedigree(rs.getBoolean(7));
+            }
+              return dog;  
+            }catch(SQLException e){
+                e.printStackTrace();
             return dog;
+            }
+            
     }
             
-    public boolean deletePet( clsDog dog){
-    try{
+public boolean deletePet( int code){
+    try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+        if(con != null){
+        System.out.println("conectado");
+        };
+        
+        String sqlId="SELECT petId,dog_id FROM tb_pet inner join tb_dog on (pet_id=petId) WHERE petCode=?";
+        String sqlPet="DELETE FROM `tb_pet` WHERE petId=?";
+        String sqlDog="DELETE FROM `tb_dog` WHERE pet_Id=?";
+        
+        
+        //se prepara el estamento y se envia la orden de retornar las llaves generadas
+        PreparedStatement statement = con.prepareStatement(sqlId);
+        statement.setInt(1,code);
+        //se ejecuta la consulta para conocer los id 
+        ResultSet rs=statement.executeQuery();
+        while(rs.next()){
+            int id1=rs.getInt(1);
+            int id2=rs.getInt(2);
 
+            
+            PreparedStatement staDog=con.prepareStatement(sqlDog);
+            staDog.setInt(1, id2);
+            
+            staDog.executeUpdate();
+            
+            
+            
+            PreparedStatement staPet=con.prepareStatement(sqlPet);
+            //se envian lso datos a la cconsulta sql
+            staPet.setInt(1,id1);
+            staPet.executeUpdate();
+        }
         return true;
-    }catch(Exception e){
-        return false;
-    }
-    }
-                
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+}  
 
 }

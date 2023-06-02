@@ -41,7 +41,8 @@ public class ctlPet {
                 this.modelDog.editPet((clsDog)pet);
                 break;
             case "Gato":
-                this.modelCat.createPet((clsCat)pet);
+                this.modelCat=new modelCat();
+                this.modelCat.editPet((clsCat)pet);
                 break;
         }
         return true;
@@ -58,7 +59,8 @@ public class ctlPet {
                 pet=modelDog.searchPet(code);
                 break;
             case "Gato":
-                this.modelCat.searchPet(code);
+                this.modelCat=new modelCat();
+                pet=modelCat.searchPet(code);
                 break;
         }
         return pet;
@@ -66,15 +68,16 @@ public class ctlPet {
         return pet;
     }
             
-    public boolean DeletePet(clsPet pet){
+    public boolean DeletePet(int code, String type){
     try{
-        switch(pet.getAnimalType()){
+        switch(type){
             case "Perro":
                 this.modelDog=new modelDog();
-                this.modelDog.deletePet((clsDog)pet);
+                this.modelDog.deletePet(code);
                 break;
             case "Gato":
-                this.modelCat.deletePet((clsCat)pet);
+                this.modelCat=new modelCat();
+                this.modelCat.deletePet(code);
                 break;
         }
         return true;

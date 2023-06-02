@@ -11,7 +11,7 @@ public class dbData {
     private final String driver="com.mysql.cj.jdbc.Driver";
     private final String user="root";
     private final String password="";
-    private final String url="jdbc:mysql://localhost:3307/veterinaria";
+    private final String url="jdbc:mysql://localhost:3306/veterinaria";
 
     public String getDriver() {
         return driver;
