@@ -150,14 +150,14 @@ public class modelDog {
     }
             
 public boolean deletePet( int code){
-    try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+ try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
         if(con != null){
         System.out.println("conectado");
         };
         
         String sqlId="SELECT petId,dog_id FROM tb_pet inner join tb_dog on (pet_id=petId) WHERE petCode=?";
         String sqlPet="DELETE FROM `tb_pet` WHERE petId=?";
-        String sqlDog="DELETE FROM `tb_dog` WHERE pet_Id=?";
+        String sqlCat="DELETE FROM `tb_dog` WHERE dog_id=?";
         
         
         //se prepara el estamento y se envia la orden de retornar las llaves generadas
@@ -170,7 +170,7 @@ public boolean deletePet( int code){
             int id2=rs.getInt(2);
 
             
-            PreparedStatement staDog=con.prepareStatement(sqlDog);
+            PreparedStatement staDog=con.prepareStatement(sqlCat);
             staDog.setInt(1, id2);
             
             staDog.executeUpdate();

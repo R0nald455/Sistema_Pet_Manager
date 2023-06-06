@@ -90,7 +90,7 @@ public class frmPet extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
@@ -139,7 +139,11 @@ public class frmPet extends javax.swing.JFrame {
         jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 90, 20));
 
         cbHealthCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sano", "Enfermo", " " }));
-        cbHealthCat.setBorder(null);
+        cbHealthCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbHealthCatActionPerformed(evt);
+            }
+        });
         jPanel6.add(cbHealthCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 110, -1));
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 270, 140));
@@ -178,8 +182,8 @@ public class frmPet extends javax.swing.JFrame {
         jLabel27.setText("Breed");
         jPanel7.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 40, 20));
 
+        cbBreedCat.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         cbBreedCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " Persa", "Egipcio", "Elfo", "Boon" }));
-        cbBreedCat.setBorder(null);
         jPanel7.add(cbBreedCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 110, -1));
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 270, 140));
@@ -315,7 +319,6 @@ public class frmPet extends javax.swing.JFrame {
 
         cbHealthDog.setBackground(new java.awt.Color(244, 244, 244));
         cbHealthDog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sano", "Malestar", " " }));
-        cbHealthDog.setBorder(null);
         jPanel9.add(cbHealthDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 110, -1));
 
         jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 140));
@@ -407,7 +410,6 @@ public class frmPet extends javax.swing.JFrame {
 
         cbBreedDog.setBackground(new java.awt.Color(244, 244, 244));
         cbBreedDog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pastor Aleman", "Golden ", "Criollo" }));
-        cbBreedDog.setBorder(null);
         jPanel11.add(cbBreedDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 110, -1));
 
         cbPedigreDog.setBackground(new java.awt.Color(255, 255, 255));
@@ -427,6 +429,7 @@ public class frmPet extends javax.swing.JFrame {
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 620, 300));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jLabel1.setText("Pet Manager");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
@@ -674,6 +677,10 @@ public class frmPet extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,"Digite un valor valido");
         }
     }//GEN-LAST:event_btnEditarCatActionPerformed
+
+    private void cbHealthCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHealthCatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbHealthCatActionPerformed
 
     private void fillList(){
         DefaultListModel model = new DefaultListModel();
