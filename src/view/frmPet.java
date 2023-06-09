@@ -143,7 +143,7 @@ public class frmPet extends javax.swing.JFrame {
         jLabel16.setText("Health Status");
         jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 90, 20));
 
-        cbHealthCat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbHealthCat.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         cbHealthCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sano", "Enfermo", " " }));
         cbHealthCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +188,7 @@ public class frmPet extends javax.swing.JFrame {
         jLabel27.setText("Breed");
         jPanel7.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 40, 20));
 
-        cbBreedCat.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        cbBreedCat.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
         cbBreedCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " Persa", "Egipcio", "Elfo", "Boon" }));
         jPanel7.add(cbBreedCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, 30));
 
@@ -319,7 +319,7 @@ public class frmPet extends javax.swing.JFrame {
         jLabel10.setText("Health Status");
         jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 90, 20));
 
-        cbHealthDog.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbHealthDog.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         cbHealthDog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sano", "Malestar", " " }));
         jPanel9.add(cbHealthDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 290, 30));
 
@@ -359,8 +359,7 @@ public class frmPet extends javax.swing.JFrame {
         jLabel13.setText("Breed");
         jPanel11.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, 20));
 
-        cbBreedDog.setBackground(new java.awt.Color(244, 244, 244));
-        cbBreedDog.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbBreedDog.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         cbBreedDog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pastor Aleman", "Golden ", "Criollo" }));
         jPanel11.add(cbBreedDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 310, 30));
 
