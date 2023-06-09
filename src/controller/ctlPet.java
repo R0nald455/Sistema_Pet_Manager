@@ -8,23 +8,27 @@ package controller;
 import clases.clsCat;
 import clases.clsDog;
 import clases.clsPet;
+import java.util.LinkedList;
 import model.modelCat;
 import model.modelDog;
 
 public class ctlPet {
     private modelDog modelDog;
     private modelCat modelCat;
+
+    public ctlPet() {
+        this.modelDog=new modelDog();
+        this.modelCat=new modelCat();
+    }
     
 
     public boolean CreatePet(clsPet pet){
     try{
         switch(pet.getAnimalType()){
-            case "Perro":
-                this.modelDog=new modelDog();
+            case "Perro":                
                 this.modelDog.createPet((clsDog)pet);
                 break;
             case "Gato":
-                this.modelCat=new modelCat();
                 this.modelCat.createPet((clsCat)pet);
                 break;
         }
@@ -37,11 +41,9 @@ public class ctlPet {
     try{
         switch(pet.getAnimalType()){
             case "Perro":
-                this.modelDog=new modelDog();
                 this.modelDog.editPet((clsDog)pet);
                 break;
             case "Gato":
-                this.modelCat=new modelCat();
                 this.modelCat.editPet((clsCat)pet);
                 break;
         }
@@ -55,11 +57,9 @@ public class ctlPet {
     try{
         switch(type){
             case "Perro":
-                this.modelDog=new modelDog();
                 pet=modelDog.searchPet(code);
                 break;
             case "Gato":
-                this.modelCat=new modelCat();
                 pet=modelCat.searchPet(code);
                 break;
         }
@@ -72,16 +72,30 @@ public class ctlPet {
     try{
         switch(type){
             case "Perro":
-                this.modelDog=new modelDog();
                 this.modelDog.deletePet(code);
                 break;
             case "Gato":
-                this.modelCat=new modelCat();
                 this.modelCat.deletePet(code);
                 break;
         }
         return true;
     }catch(Exception e){}
         return false;
+    }
+    
+    
+    public LinkedList  fillList(String type){
+        LinkedList<clsPet> petObjectList=null;
+    try{
+        switch(type){
+            case "Perro":
+                return modelDog.fillList();
+            case "Gato":
+                return modelCat.fillList();
+        }
+    }catch(Exception e){
+        return petObjectList;
+    }
+        return null;
     }
 }

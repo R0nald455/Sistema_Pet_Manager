@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.LinkedList;
 
 
 public class modelDog {
@@ -187,6 +188,36 @@ public boolean deletePet( int code){
             e.printStackTrace();
             return false;
         }
-}  
+}
+
+
+
+
+    public  LinkedList<clsDog> fillList(){
+            LinkedList<clsDog> dogObjectList=new LinkedList<>();
+            try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+            if(con != null){
+            System.out.println("conectado");
+            };
+            String sql="SELECT petCode,petName,born_year,color,health_status,breed,pedigree FROM tb_pet inner join tb_dog on (pet_id=petId)";
+            PreparedStatement statement=con.prepareStatement(sql);
+            ResultSet rs=statement.executeQuery();
+            while(rs.next()){
+            clsDog dog=new clsDog();
+            dog.setCode(rs.getInt(1));
+            dog.setName(rs.getString(2));
+            dog.setBorn_year(rs.getInt(3));
+            dog.setColor(rs.getString(4));
+            dog.setHealthStatus(rs.getString(5));
+            dog.setBreed(rs.getString(6));
+            dog.setPedigree(rs.getBoolean(7));
+            dogObjectList.add(dog);
+            }
+                return dogObjectList;  
+            }catch(SQLException e){
+                e.printStackTrace();
+                return dogObjectList;
+            }
+    }
 
 }

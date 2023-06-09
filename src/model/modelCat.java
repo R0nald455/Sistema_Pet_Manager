@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.util.LinkedList;
 
 
 public class modelCat {
@@ -173,7 +174,31 @@ public class modelCat {
         }
     }
           
-    
+        public  LinkedList<clsCat> fillList(){
+            LinkedList<clsCat> catObjectList=new LinkedList<>();
+            try(Connection con=DriverManager.getConnection(dbData.getUrl(),dbData.getUser(),dbData.getPassword())){
+            if(con != null){
+            System.out.println("conectado");
+            };
+            String sql="SELECT petCode,petName,born_year,color,health_status,breed FROM tb_pet inner join tb_cat on (pet_id=petId)";
+            PreparedStatement statement=con.prepareStatement(sql);
+            ResultSet rs=statement.executeQuery();
+            while(rs.next()){
+            clsCat cat=new clsCat();
+            cat.setCode(rs.getInt(1));
+            cat.setName(rs.getString(2));
+            cat.setBorn_year(rs.getInt(3));
+            cat.setColor(rs.getString(4));
+            cat.setHealthStatus(rs.getString(5));
+            cat.setBreed(rs.getString(6));
+            catObjectList.add(cat);
+            }
+                return catObjectList;  
+            }catch(SQLException e){
+                e.printStackTrace();
+                return catObjectList;
+            }
+    }
     
     
 }

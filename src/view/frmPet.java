@@ -20,14 +20,14 @@ public class frmPet extends javax.swing.JFrame {
     
     
         ctlPet ctlPet;
-        LinkedList<clsDog> dogObjectList=new LinkedList<>();
-        LinkedList<clsCat> catObjectList=new LinkedList<>();
     /**
      * Creates new form view
      */
     public frmPet() {
         initComponents();
         this.ctlPet=new ctlPet();
+        fillList();
+        fillListCat();
     }
 
     /**
@@ -57,14 +57,13 @@ public class frmPet extends javax.swing.JFrame {
         txtColorCat = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         cbBreedCat = new javax.swing.JComboBox<>();
-        jPanel12 = new javax.swing.JPanel();
         btnEliminarCat = new javax.swing.JButton();
-        btnCrearCat = new javax.swing.JButton();
-        btnBuscarCat = new javax.swing.JButton();
         btnEditarCat = new javax.swing.JButton();
+        btnBuscarCat = new javax.swing.JButton();
+        btnCrearCat = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        PetList = new javax.swing.JList<>();
+        CatList = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -73,11 +72,6 @@ public class frmPet extends javax.swing.JFrame {
         txtBornDog = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cbHealthDog = new javax.swing.JComboBox<>();
-        jPanel10 = new javax.swing.JPanel();
-        btnEliminarDog = new javax.swing.JButton();
-        btnCrearDog = new javax.swing.JButton();
-        btnBuscarDog = new javax.swing.JButton();
-        btnEditarDog = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtNameDog = new javax.swing.JTextField();
@@ -86,17 +80,28 @@ public class frmPet extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         cbBreedDog = new javax.swing.JComboBox<>();
         cbPedigreDog = new javax.swing.JCheckBox();
+        btnEliminarDog = new javax.swing.JButton();
+        btnEditarDog = new javax.swing.JButton();
+        btnBuscarDog = new javax.swing.JButton();
+        btnCrearDog = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        DogList = new javax.swing.JList<>();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setBackground(new java.awt.Color(102, 255, 102));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTabbedPane1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(240, 242, 244));
 
@@ -104,13 +109,13 @@ public class frmPet extends javax.swing.JFrame {
         jPanel5.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(153, 255, 153));
         jPanel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel14.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel14.setText("Code");
-        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 40, 20));
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 40, 20));
 
         txtCodeCat.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtCodeCat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -119,11 +124,11 @@ public class frmPet extends javax.swing.JFrame {
                 txtCodeCatActionPerformed(evt);
             }
         });
-        jPanel6.add(txtCodeCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 110, 20));
+        jPanel6.add(txtCodeCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 250, 30));
 
-        jLabel15.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel15.setText("Born Year");
-        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 60, 20));
+        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 20));
 
         txtBornCat.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtBornCat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -132,29 +137,30 @@ public class frmPet extends javax.swing.JFrame {
                 txtBornCatActionPerformed(evt);
             }
         });
-        jPanel6.add(txtBornCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, 20));
+        jPanel6.add(txtBornCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 250, 30));
 
-        jLabel16.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel16.setText("Health Status");
-        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 90, 20));
+        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 90, 20));
 
+        cbHealthCat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbHealthCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sano", "Enfermo", " " }));
         cbHealthCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbHealthCatActionPerformed(evt);
             }
         });
-        jPanel6.add(cbHealthCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 110, -1));
+        jPanel6.add(cbHealthCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 250, 30));
 
-        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 270, 140));
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 460, 160));
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(153, 255, 153));
         jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel25.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel25.setText("Name");
-        jPanel7.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 20));
+        jPanel7.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 40, 20));
 
         txtNameCat.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtNameCat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -163,11 +169,11 @@ public class frmPet extends javax.swing.JFrame {
                 txtNameCatActionPerformed(evt);
             }
         });
-        jPanel7.add(txtNameCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 110, 20));
+        jPanel7.add(txtNameCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 210, 30));
 
-        jLabel26.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel26.setText("Color");
-        jPanel7.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 40, 20));
+        jPanel7.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 40, 20));
 
         txtColorCat.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtColorCat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -176,22 +182,19 @@ public class frmPet extends javax.swing.JFrame {
                 txtColorCatActionPerformed(evt);
             }
         });
-        jPanel7.add(txtColorCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 110, 20));
+        jPanel7.add(txtColorCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 210, 30));
 
-        jLabel27.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel27.setText("Breed");
-        jPanel7.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 40, 20));
+        jPanel7.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 40, 20));
 
-        cbBreedCat.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        cbBreedCat.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         cbBreedCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " Persa", "Egipcio", "Elfo", "Boon" }));
-        jPanel7.add(cbBreedCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 110, -1));
+        jPanel7.add(cbBreedCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, 30));
 
-        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 270, 140));
+        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 460, 160));
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnEliminarCat.setBackground(new java.awt.Color(204, 204, 204));
+        btnEliminarCat.setBackground(new java.awt.Color(153, 255, 153));
         btnEliminarCat.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btnEliminarCat.setText("Eliminar");
         btnEliminarCat.setBorder(null);
@@ -200,31 +203,9 @@ public class frmPet extends javax.swing.JFrame {
                 btnEliminarCatActionPerformed(evt);
             }
         });
-        jPanel12.add(btnEliminarCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 80, 50));
+        jPanel5.add(btnEliminarCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 240, 140, 90));
 
-        btnCrearCat.setBackground(new java.awt.Color(204, 204, 204));
-        btnCrearCat.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnCrearCat.setText("Crear");
-        btnCrearCat.setBorder(null);
-        btnCrearCat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearCatActionPerformed(evt);
-            }
-        });
-        jPanel12.add(btnCrearCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 80, 50));
-
-        btnBuscarCat.setBackground(new java.awt.Color(204, 204, 204));
-        btnBuscarCat.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnBuscarCat.setText("Buscar");
-        btnBuscarCat.setBorder(null);
-        btnBuscarCat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarCatActionPerformed(evt);
-            }
-        });
-        jPanel12.add(btnBuscarCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 80, 50));
-
-        btnEditarCat.setBackground(new java.awt.Color(204, 204, 204));
+        btnEditarCat.setBackground(new java.awt.Color(153, 255, 153));
         btnEditarCat.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btnEditarCat.setText("Editar");
         btnEditarCat.setBorder(null);
@@ -233,15 +214,37 @@ public class frmPet extends javax.swing.JFrame {
                 btnEditarCatActionPerformed(evt);
             }
         });
-        jPanel12.add(btnEditarCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 80, 50));
+        jPanel5.add(btnEditarCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 140, 90));
 
-        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 420, 90));
+        btnBuscarCat.setBackground(new java.awt.Color(153, 255, 153));
+        btnBuscarCat.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnBuscarCat.setText("Buscar");
+        btnBuscarCat.setBorder(null);
+        btnBuscarCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCatActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnBuscarCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 140, 90));
+
+        btnCrearCat.setBackground(new java.awt.Color(153, 255, 153));
+        btnCrearCat.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnCrearCat.setText("Crear");
+        btnCrearCat.setBorder(null);
+        btnCrearCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearCatActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnCrearCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 140, 90));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,12 +255,13 @@ public class frmPet extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        PetList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Pet1", "Pet2", "Pet3", "Pet4", "Pet5", "Pet6" };
+        CatList.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        CatList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Pets" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(PetList);
+        jScrollPane1.setViewportView(CatList);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -265,31 +269,30 @@ public class frmPet extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 949, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("PetList\n", jPanel3);
+        jTabbedPane1.addTab("CatList", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBackground(new java.awt.Color(153, 255, 153));
         jPanel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setText("Code");
-        jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 40, 20));
+        jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 40, 20));
 
-        txtCodeDog.setBackground(new java.awt.Color(244, 244, 244));
         txtCodeDog.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtCodeDog.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtCodeDog.addActionListener(new java.awt.event.ActionListener() {
@@ -297,13 +300,12 @@ public class frmPet extends javax.swing.JFrame {
                 txtCodeDogActionPerformed(evt);
             }
         });
-        jPanel9.add(txtCodeDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 110, 20));
+        jPanel9.add(txtCodeDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 290, 30));
 
-        jLabel9.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel9.setText("Born Year");
-        jPanel9.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 60, 20));
+        jPanel9.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 70, 20));
 
-        txtBornDog.setBackground(new java.awt.Color(244, 244, 244));
         txtBornDog.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtBornDog.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtBornDog.addActionListener(new java.awt.event.ActionListener() {
@@ -311,76 +313,26 @@ public class frmPet extends javax.swing.JFrame {
                 txtBornDogActionPerformed(evt);
             }
         });
-        jPanel9.add(txtBornDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 110, 20));
+        jPanel9.add(txtBornDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 290, 30));
 
-        jLabel10.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel10.setText("Health Status");
         jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 90, 20));
 
-        cbHealthDog.setBackground(new java.awt.Color(244, 244, 244));
+        cbHealthDog.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbHealthDog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sano", "Malestar", " " }));
-        jPanel9.add(cbHealthDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 110, -1));
+        jPanel9.add(cbHealthDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 290, 30));
 
-        jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 140));
+        jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 460, 170));
 
-        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnEliminarDog.setBackground(new java.awt.Color(204, 204, 204));
-        btnEliminarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnEliminarDog.setText("Eliminar");
-        btnEliminarDog.setBorder(null);
-        btnEliminarDog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarDogActionPerformed(evt);
-            }
-        });
-        jPanel10.add(btnEliminarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 80, 50));
-
-        btnCrearDog.setBackground(new java.awt.Color(204, 204, 204));
-        btnCrearDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnCrearDog.setText("Crear");
-        btnCrearDog.setBorder(null);
-        btnCrearDog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearDogActionPerformed(evt);
-            }
-        });
-        jPanel10.add(btnCrearDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 50));
-
-        btnBuscarDog.setBackground(new java.awt.Color(204, 204, 204));
-        btnBuscarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnBuscarDog.setText("Buscar");
-        btnBuscarDog.setBorder(null);
-        btnBuscarDog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarDogActionPerformed(evt);
-            }
-        });
-        jPanel10.add(btnBuscarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 80, 50));
-
-        btnEditarDog.setBackground(new java.awt.Color(204, 204, 204));
-        btnEditarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnEditarDog.setText("Editar");
-        btnEditarDog.setBorder(null);
-        btnEditarDog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarDogActionPerformed(evt);
-            }
-        });
-        jPanel10.add(btnEditarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 80, 50));
-
-        jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 380, 90));
-
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBackground(new java.awt.Color(153, 255, 153));
         jPanel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel6.setText("Name");
-        jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 40, 20));
+        jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, 20));
 
-        txtNameDog.setBackground(new java.awt.Color(244, 244, 244));
         txtNameDog.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtNameDog.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtNameDog.addActionListener(new java.awt.event.ActionListener() {
@@ -388,13 +340,12 @@ public class frmPet extends javax.swing.JFrame {
                 txtNameDogActionPerformed(evt);
             }
         });
-        jPanel11.add(txtNameDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 110, 20));
+        jPanel11.add(txtNameDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 310, 30));
 
-        jLabel11.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel11.setText("Color");
-        jPanel11.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 40, 20));
+        jPanel11.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 40, 20));
 
-        txtColorDog.setBackground(new java.awt.Color(244, 244, 244));
         txtColorDog.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtColorDog.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtColorDog.addActionListener(new java.awt.event.ActionListener() {
@@ -402,18 +353,19 @@ public class frmPet extends javax.swing.JFrame {
                 txtColorDogActionPerformed(evt);
             }
         });
-        jPanel11.add(txtColorDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 110, 20));
+        jPanel11.add(txtColorDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 310, 30));
 
-        jLabel13.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel13.setText("Breed");
         jPanel11.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, 20));
 
         cbBreedDog.setBackground(new java.awt.Color(244, 244, 244));
+        cbBreedDog.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbBreedDog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pastor Aleman", "Golden ", "Criollo" }));
-        jPanel11.add(cbBreedDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 110, -1));
+        jPanel11.add(cbBreedDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 310, 30));
 
         cbPedigreDog.setBackground(new java.awt.Color(255, 255, 255));
-        cbPedigreDog.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        cbPedigreDog.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         cbPedigreDog.setText("Pedigree");
         cbPedigreDog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cbPedigreDog.addActionListener(new java.awt.event.ActionListener() {
@@ -421,28 +373,142 @@ public class frmPet extends javax.swing.JFrame {
                 cbPedigreDogActionPerformed(evt);
             }
         });
-        jPanel11.add(cbPedigreDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 80, -1));
+        jPanel11.add(cbPedigreDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 100, -1));
 
-        jPanel4.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 280, 140));
+        jPanel4.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 450, 170));
+
+        btnEliminarDog.setBackground(new java.awt.Color(153, 255, 153));
+        btnEliminarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnEliminarDog.setText("Eliminar");
+        btnEliminarDog.setBorder(null);
+        btnEliminarDog.setBorderPainted(false);
+        btnEliminarDog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEliminarDog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDogActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnEliminarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 250, 130, 80));
+
+        btnEditarDog.setBackground(new java.awt.Color(153, 255, 153));
+        btnEditarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnEditarDog.setText("Editar");
+        btnEditarDog.setBorder(null);
+        btnEditarDog.setBorderPainted(false);
+        btnEditarDog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEditarDog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarDogActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnEditarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 130, 80));
+
+        btnBuscarDog.setBackground(new java.awt.Color(153, 255, 153));
+        btnBuscarDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnBuscarDog.setText("Buscar");
+        btnBuscarDog.setBorder(null);
+        btnBuscarDog.setBorderPainted(false);
+        btnBuscarDog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBuscarDog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDogActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnBuscarDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 130, 80));
+
+        btnCrearDog.setBackground(new java.awt.Color(153, 255, 153));
+        btnCrearDog.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnCrearDog.setText("Crear");
+        btnCrearDog.setBorder(null);
+        btnCrearDog.setBorderPainted(false);
+        btnCrearDog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCrearDog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearDogActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnCrearDog, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 130, 80));
 
         jTabbedPane1.addTab("DogManager\n", jPanel4);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 620, 300));
+        DogList.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        DogList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Pets" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(DogList);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 949, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("DogList", jPanel8);
+
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 980, 450));
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo .png"))); // NOI18N
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
         jLabel1.setText("Pet Manager");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3))
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 550, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/huellas.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -170, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/huellas.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -210, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1023, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -481,8 +547,8 @@ public class frmPet extends javax.swing.JFrame {
             int codigo=Integer.parseInt(code);
             boolean found=false; 
             found=ctlPet.DeletePet(codigo,"Perro");
-            this.fillList();
             limpiarDog();
+            fillList();
             JOptionPane.showMessageDialog(this, "Mascota Eliminada");
             if(!found){
                 JOptionPane.showMessageDialog(this,"Codigo no encontrado");
@@ -511,11 +577,10 @@ public class frmPet extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
             }else{
                 clsDog dog= new clsDog(code,name,bornYear,color,health,breed,pedigree);
-                dogObjectList.add(dog);
-                this.fillList();
-                limpiarDog();
-                ctlPet.CreatePet(dog);
                 
+                ctlPet.CreatePet(dog);
+                limpiarDog();
+                fillList();
                 JOptionPane.showMessageDialog(this,"Mascota Registrada");
             }
 
@@ -528,6 +593,7 @@ public class frmPet extends javax.swing.JFrame {
         try{
             String code= txtCodeDog.getText();
             int codigo=Integer.parseInt(code);
+            fillList();
             clsDog dog = (clsDog) ctlPet.searchPet(codigo, "Perro");
             if(dog==null) {
                 JOptionPane.showMessageDialog(this, "Codigo no encontrado");
@@ -558,8 +624,9 @@ public class frmPet extends javax.swing.JFrame {
             }else{
                     clsDog dog= new clsDog(code,name,bornYear,color,health,breed,pedigree);
                     ctlPet.EditPet(dog);
-                    fillList();
+                    
                     limpiarDog();
+                    fillList();
                     JOptionPane.showMessageDialog(this,"Mascota actualizada");
         }
         }catch(Exception e){    
@@ -588,8 +655,8 @@ public class frmPet extends javax.swing.JFrame {
             int codigo=Integer.parseInt(code);
             boolean found=false; 
             found=ctlPet.DeletePet(codigo,"Gato");
-            this.fillList();
-            limpiarDog();
+            limpiarCat();
+            fillListCat();
             JOptionPane.showMessageDialog(this, "Mascota Eliminada");
             if(!found){
                 JOptionPane.showMessageDialog(this,"Codigo no encontrado");
@@ -618,10 +685,9 @@ public class frmPet extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
             }else{
                 clsCat cat= new clsCat(code,name,bornYear,color,health,breed);
-                catObjectList.add(cat);
-                this.fillListCat();
                 ctlPet.CreatePet(cat);
                 limpiarCat();
+                fillListCat();
                 JOptionPane.showMessageDialog(this,"Mascota Registrada");
             }
 
@@ -668,8 +734,8 @@ public class frmPet extends javax.swing.JFrame {
             }else{
                     clsCat cat= new clsCat(code,name,bornYear,color,health,breed);
                     ctlPet.EditPet(cat);
-                    fillListCat();
                     limpiarCat();
+                    fillListCat();
                     JOptionPane.showMessageDialog(this,"Mascota actualizada");
 
         }
@@ -683,14 +749,16 @@ public class frmPet extends javax.swing.JFrame {
     }//GEN-LAST:event_cbHealthCatActionPerformed
 
     private void fillList(){
+        LinkedList<clsDog> dogObjectList=null;
         DefaultListModel model = new DefaultListModel();
         int index=0;
+        dogObjectList=ctlPet.fillList("Perro");
         for (clsDog dog : dogObjectList){
-            String data=dog.getName()+" "+dog.getBreed()+" "+dog.getColor()+" "+dog.getHealthStatus();
+            String data=dog.getCode()+" | "+dog.getName()+" | "+dog.getBorn_year()+" | "+dog.getColor()+" | "+dog.getBreed()+" | "+dog.getHealthStatus();
             model.add(index, data);
             index++;
         }
-        PetList.setModel(model);
+        DogList.setModel(model);
     }
     
     private void limpiarDog(){
@@ -702,14 +770,16 @@ public class frmPet extends javax.swing.JFrame {
     }
     
     private void fillListCat(){
+        LinkedList<clsCat> catObjectList=null;
         DefaultListModel model = new DefaultListModel();
         int index=0;
+        catObjectList=ctlPet.fillList("Gato");
         for (clsCat cat : catObjectList){
-            String data=cat.getName()+" "+cat.getBreed()+" "+cat.getColor()+" "+cat.getHealthStatus();
+            String data=cat.getCode()+" | "+cat.getName()+" | "+cat.getBorn_year()+" | "+cat.getColor()+" | "+cat.getBreed()+" | "+cat.getHealthStatus();
             model.add(index, data);
             index++;
         }
-        PetList.setModel(model);
+        CatList.setModel(model);
     }
     
     private void limpiarCat(){
@@ -756,7 +826,8 @@ public class frmPet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> PetList;
+    private javax.swing.JList<String> CatList;
+    private javax.swing.JList<String> DogList;
     private javax.swing.JButton btnBuscarCat;
     private javax.swing.JButton btnBuscarDog;
     private javax.swing.JButton btnCrearCat;
@@ -780,21 +851,25 @@ public class frmPet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField txtBornCat;
     private javax.swing.JTextField txtBornDog;
